@@ -1,6 +1,6 @@
 package prog.orient.objeto.suitespots;
 
-import prog.orient.objeto.suitespots.controller.DatabaseAux;
+import prog.orient.objeto.suitespots.controller.CRUDHelper;
 import prog.orient.objeto.suitespots.models.Cliente;
 
 /*
@@ -14,12 +14,10 @@ import prog.orient.objeto.suitespots.models.Cliente;
  */
 public class Main {
     public static void main(String[] args) {
-        DatabaseAux dbAux = new DatabaseAux();
-
         Cliente c = new Cliente(0, "Pedro Lucas", "Pedro", "05770449152", "066999425980", 'M',
                 "pedrolucascaratti@gmail.com", 1, "Rua São Caetano", 1115, "Jardim Riva", "Primavera do Leste", "MT",
                 "LINDO DEMAIS");
 
-        dbAux.createCliente(c);
+        CRUDHelper.getInstance().create(c);
     }
 }

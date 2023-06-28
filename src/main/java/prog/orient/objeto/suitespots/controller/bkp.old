@@ -1,0 +1,183 @@
+// C - CREATE - OK
+
+    public boolean createCliente(Cliente cliente) {
+        boolean state = cliente.create(this.connection);
+        if (state) {
+            System.out.println("Cliente " + cliente.getNome() + " criado com sucesso!");
+        } else {
+            System.out.println("Cliente " + cliente.getNome() + " não foi criado!");
+        }
+
+        return state;
+    }
+
+    public boolean createQuarto(Quarto quarto) {
+        boolean state = quarto.create(this.connection);
+        if (state) {
+            System.out.println("Quarto " + quarto.getNumero_quarto() + " criado com sucesso!");
+        } else {
+            System.out.println("Quarto " + quarto.getNumero_quarto() + " não foi criado!");
+        }
+
+        return state;
+    }
+
+    public boolean createReserva(Reserva reserva) {
+        boolean state = reserva.create(this.connection);
+        if (state) {
+            System.out.println("Reserva " + reserva.getId() + " criada com sucesso!");
+        } else {
+            System.out.println("Reserva " + reserva.getId() + " não foi criada!");
+        }
+
+        return state;
+    }
+
+    public boolean createPagamento(Pagamento pagamento) {
+        boolean state = pagamento.create(this.connection);
+        if (state) {
+            System.out.println("Pagamento " + pagamento.getId() + " criado com sucesso!");
+        } else {
+            System.out.println("Pagamento " + pagamento.getId() + " não foi criado!");
+        }
+
+        return state;
+    }
+
+    // R - READ - OK
+
+    public Cliente readCliente(Cliente cliente) {
+        Cliente mCliente = cliente.read(this.connection);
+        if (mCliente != null) {
+            System.out.println("Cliente " + mCliente.getNome() + " encontrado!");
+        } else {
+            System.out.println("Cliente " + cliente.getId() + " não foi encontrado!");
+        }
+
+        return mCliente;
+    }
+
+    public Quarto readQuarto(Quarto quarto) {
+        Quarto mQuarto = quarto.read(this.connection);
+        if (mQuarto != null) {
+            System.out.println("Quarto " + mQuarto.getNumero_quarto() + " encontrado!");
+        } else {
+            System.out.println("Quarto " + quarto.getNumero_quarto() + " não foi encontrado!");
+        }
+
+        return mQuarto;
+    }
+
+    public Reserva readReserva(Reserva reserva) {
+        Reserva mReserva = reserva.read(this.connection);
+        if (mReserva != null) {
+            System.out.println("Reserva " + mReserva.getId() + " encontrada!");
+        } else {
+            System.out.println("Reserva " + reserva.getId() + " não foi encontrada!");
+        }
+
+        return mReserva;
+    }
+
+    public Pagamento readPagamento(Pagamento pagamento) {
+        Pagamento mPagamento = pagamento.read(this.connection);
+        if (mPagamento != null) {
+            System.out.println("Pagamento " + mPagamento.getId() + " encontrado!");
+        } else {
+            System.out.println("Pagamento " + pagamento.getId() + " não foi encontrado!");
+        }
+
+        return mPagamento;
+    }
+
+    // U - UPDATE - OK
+
+    public boolean updateCliente(Cliente cliente) {
+        boolean state = cliente.update(this.connection);
+        if (state) {
+            System.out.println("Cliente " + cliente.getNome() + " atualizado!");
+        } else {
+            System.out.println("Cliente " + cliente.getId() + " não foi atualizado!");
+        }
+
+        return state;
+    }
+
+    public boolean updateQuarto(Quarto quarto) {
+        boolean state = quarto.update(this.connection);
+        if (state) {
+            System.out.println("Quarto " + quarto.getNumero_quarto() + " atualizado!");
+        } else {
+            System.out.println("Quarto " + quarto.getId() + " não foi atualizado!");
+        }
+
+        return state;
+    }
+
+    public boolean updateReserva(Reserva reserva) {
+        boolean state = reserva.update(this.connection);
+        if (state) {
+            System.out.println("Reserva " + reserva.getId() + " atualizada!");
+        } else {
+            System.out.println("Reserva " + reserva.getId() + " não foi atualizada!");
+        }
+
+        return state;
+    }
+
+    public boolean updatePagamento(Pagamento pagamento) {
+        boolean state = pagamento.update(this.connection);
+        if (state) {
+            System.out.println("Pagamento " + pagamento.getId() + " atualizado!");
+        } else {
+            System.out.println("Pagamento " + pagamento.getId() + " não foi atualizado!");
+        }
+
+        return state;
+    }
+
+    // D - DELETE - OK
+
+    public boolean deleteCliente(Cliente cliente) {
+        boolean state = cliente.delete(this.connection);
+        if (state) {
+            System.out.println("Cliente " + cliente.getNome() + " deletado!");
+        } else {
+            System.out.println("Cliente " + cliente.getId() + " não foi deletado!");
+        }
+
+        return state;
+    }
+
+    public boolean deleteQuarto(Quarto quarto) {
+        boolean state = quarto.delete(this.connection);
+        if (state) {
+            System.out.println("Quarto " + quarto.getNumero_quarto() + " deletado!");
+        } else {
+            System.out.println("Quarto " + quarto.getId() + " não foi deletado!");
+        }
+
+        return state;
+    }
+
+    public boolean deleteReserva(Reserva reserva) {
+        boolean state = reserva.delete(this.connection);
+        if (state) {
+            System.out.println("Reserva " + reserva.getId() + " deletada!");
+        } else {
+            System.out.println("Reserva " + reserva.getId() + " não foi deletada!");
+        }
+
+        return state;
+    }
+
+    public boolean deletePagamento(Pagamento pagamento) {
+        boolean state = pagamento.delete(this.connection);
+        if (state) {
+            System.out.println("Quarto " + pagamento.getId() + " deletado!");
+        } else {
+            System.out.println("Quarto " + pagamento.getId() + " não foi deletado!");
+        }
+
+        return state;
+    }

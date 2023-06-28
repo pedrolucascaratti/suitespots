@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Quarto {
+public class Quarto implements CRUDEntity {
     private int id;
     private Integer id_reserva;
     private int numero_quarto;
@@ -39,6 +39,7 @@ public class Quarto {
         this.observacao = observacao;
     }
 
+    @Override
     public boolean create(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(createSqlQuery)) {
             pstmt.setInt(1, this.id_reserva); // id_reserva
@@ -52,15 +53,17 @@ public class Quarto {
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
+                System.out.println("Quarto " + this.getNumero_quarto() + " foi criado com sucesso!");
                 return true;
             }
-            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Quarto " + this.getNumero_quarto() + " não foi criado!");
         return false;
     }
 
+    @Override
     public Quarto read(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(readSqlQuery)) {
             pstmt.setInt(1, this.id);
@@ -74,14 +77,18 @@ public class Quarto {
                 this.tipo = rs.getString("tipo");
                 this.caracteristica = rs.getString("caracteristica");
                 this.observacao = rs.getString("observacao");
+
+                System.out.println("Quarto " + this.getNumero_quarto() + " encontrado!");
                 return this;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Quarto " + this.getId() + " não foi encontrado!");
         return null;
     }
 
+    @Override
     public boolean update(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(updateSqlQuery)) {
             pstmt.setInt(1, this.id_reserva);
@@ -96,15 +103,17 @@ public class Quarto {
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
+                System.out.println("Quarto " + this.getNumero_quarto() + " atualizado!");
                 return true;
             }
-            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Quarto " + this.getId() + " não foi atualizado!");
         return false;
     }
 
+    @Override
     public boolean delete(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(deleteSqlQuery)) {
             pstmt.setInt(1, this.id);
@@ -112,12 +121,13 @@ public class Quarto {
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
+                System.out.println("Quarto " + this.getNumero_quarto() + " deletado!");
                 return true;
             }
-            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Quarto " + this.getId() + " não foi deletado!");
         return false;
     }
 

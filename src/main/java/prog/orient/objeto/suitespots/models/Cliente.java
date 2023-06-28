@@ -12,7 +12,7 @@ import java.sql.ResultSet;
  *
  * @author pedro
  */
-public class Cliente {
+public class Cliente implements CRUDEntity {
     private int id;
     private String nome;
     private String apelido;
@@ -60,6 +60,7 @@ public class Cliente {
         this.observacoes = observacoes;
     }
 
+    @Override
     public boolean create(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(createSqlQuery)) {
             pstmt.setString(1, this.nome);
@@ -79,44 +80,17 @@ public class Cliente {
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
+                System.out.println("Cliente " + this.getNome() + " criado com sucesso!");
                 return true;
             }
-            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Cliente " + this.getNome() + " não foi criado!");
         return false;
     }
 
-    public boolean update(Connection connection) {
-        try (PreparedStatement pstmt = connection.prepareStatement(updateSqlQuery)) {
-            pstmt.setString(1, this.nome);
-            pstmt.setString(2, this.apelido);
-            pstmt.setString(3, this.cpf);
-            pstmt.setString(4, this.telefone);
-            pstmt.setString(5, String.valueOf(this.sexo));
-            pstmt.setString(6, this.email);
-            pstmt.setInt(7, this.situacao);
-            pstmt.setString(8, this.logradouro);
-            pstmt.setInt(9, this.numero);
-            pstmt.setString(10, this.bairro);
-            pstmt.setString(11, this.cidade);
-            pstmt.setString(12, this.estado);
-            pstmt.setString(13, this.observacoes);
-            pstmt.setInt(14, this.id);
-
-            int rows = pstmt.executeUpdate();
-
-            if (rows > 0) {
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
-
+    @Override
     public Cliente read(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(readSqlQuery)) {
             pstmt.setInt(1, this.id);
@@ -138,13 +112,47 @@ public class Cliente {
                 this.estado = rs.getString("estado");
                 this.observacoes = rs.getString("observacoes");
             }
+            System.out.println("Cliente " + this.getNome() + " encontrado!");
             return this;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Cliente " + this.getId() + " não foi encontrado!");
         return null;
     }
 
+    @Override
+    public boolean update(Connection connection) {
+        try (PreparedStatement pstmt = connection.prepareStatement(updateSqlQuery)) {
+            pstmt.setString(1, this.nome);
+            pstmt.setString(2, this.apelido);
+            pstmt.setString(3, this.cpf);
+            pstmt.setString(4, this.telefone);
+            pstmt.setString(5, String.valueOf(this.sexo));
+            pstmt.setString(6, this.email);
+            pstmt.setInt(7, this.situacao);
+            pstmt.setString(8, this.logradouro);
+            pstmt.setInt(9, this.numero);
+            pstmt.setString(10, this.bairro);
+            pstmt.setString(11, this.cidade);
+            pstmt.setString(12, this.estado);
+            pstmt.setString(13, this.observacoes);
+            pstmt.setInt(14, this.id);
+
+            int rows = pstmt.executeUpdate();
+
+            if (rows > 0) {
+                System.out.println("Cliente " + this.getNome() + " atualizado!");
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Cliente " + this.getId() + " não foi atualizado!");
+        return false;
+    }
+
+    @Override
     public boolean delete(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(deleteSqlQuery)) {
             pstmt.setInt(1, this.id);
@@ -152,12 +160,13 @@ public class Cliente {
             int rows = pstmt.executeUpdate();
 
             if (rows > 0) {
+                System.out.println("Cliente " + this.getNome() + " deletado!");
                 return true;
             }
-            return false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Cliente " + this.getId() + " não foi deletado!");
         return false;
     }
 

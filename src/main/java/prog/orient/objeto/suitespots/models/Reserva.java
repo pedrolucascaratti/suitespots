@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 
-public class Reserva {
+public class Reserva implements CRUDEntity {
     private int id;
     private int id_cliente;
     private Timestamp data_reserva;
@@ -20,8 +20,8 @@ public class Reserva {
     private Double valor_diaria;
     private String observacao;
 
-    private String createSqlQuery = "INSERT INTO reserva (id_cliente, data_reserva, data_entrada, data_saida, id_quarto, qnt_diarias, valor_total, ocupantes, valor_adicional, valor_desconto, valor_diaria, observacao) "
-            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private String createSqlQuery = "INSERT INTO reserva (id_cliente, data_entrada, data_saida, id_quarto, qnt_diarias, valor_total, ocupantes, valor_adicional, valor_desconto, valor_diaria, observacao) "
+            + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     private String readSqlQuery = "SELECT * FROM reserva WHERE id_reserva = ?";
 
@@ -33,7 +33,25 @@ public class Reserva {
         this.id = id;
     }
 
-    public Reserva(int id, int id_cliente, Timestamp data_reserva, Timestamp data_entrada, Timestamp data_saida,
+    public Reserva(int id, int id_cliente, Timestamp data_entrada, Timestamp data_saida,
+            int id_quarto, int qnt_diarias, double valor_total, int ocupantes, Double valor_adicional,
+            Double valor_desconto, double valor_diaria, String observacao) {
+        this.id_cliente = id_cliente;
+        this.id = id;
+        this.data_entrada = data_entrada;
+        this.data_saida = data_saida;
+        this.id_quarto = id_quarto;
+        this.qnt_diarias = qnt_diarias;
+        this.valor_total = valor_total;
+        this.ocupantes = ocupantes;
+        this.valor_adicional = valor_adicional;
+        this.valor_desconto = valor_desconto;
+        this.valor_diaria = valor_diaria;
+        this.observacao = observacao;
+        this.somaValorTotal();
+    }
+
+    private Reserva(int id, int id_cliente, Timestamp data_reserva, Timestamp data_entrada, Timestamp data_saida,
             int id_quarto, int qnt_diarias, double valor_total, int ocupantes, Double valor_adicional,
             Double valor_desconto, double valor_diaria, String observacao) {
         this.id_cliente = id_cliente;
@@ -52,31 +70,38 @@ public class Reserva {
         this.somaValorTotal();
     }
 
+    @Override
     public boolean create(Connection connection) {
         this.somaValorTotal();
         try (PreparedStatement pstmt = connection.prepareStatement(createSqlQuery)) {
             pstmt.setInt(1, this.id_cliente); // id_cliente
-            pstmt.setTimestamp(2, this.data_reserva); // data_reserva
-            pstmt.setTimestamp(3, this.data_entrada); // data_entrada
-            pstmt.setTimestamp(4, this.data_saida); // data_saida
-            pstmt.setInt(5, this.id_quarto); // id_quarto
-            pstmt.setInt(6, this.qnt_diarias); // qnt_diarias
-            pstmt.setDouble(7, this.valor_total); // valor_total
-            pstmt.setInt(8, this.ocupantes); // ocupantes
-            pstmt.setDouble(9, this.valor_adicional); // valor_adicional
-            pstmt.setDouble(10, this.valor_desconto); // valor_desconto
-            pstmt.setDouble(11, this.valor_diaria); // valor_desconto
-            pstmt.setString(12, this.observacao); // observacao
+            pstmt.setTimestamp(2, this.data_entrada); // data_entrada
+            pstmt.setTimestamp(3, this.data_saida); // data_saida
+            pstmt.setInt(4, this.id_quarto); // id_quarto
+            pstmt.setInt(5, this.qnt_diarias); // qnt_diarias
+            pstmt.setDouble(6, this.valor_total); // valor_total
+            pstmt.setInt(7, this.ocupantes); // ocupantes
+            pstmt.setDouble(8, this.valor_adicional); // valor_adicional
+            pstmt.setDouble(9, this.valor_desconto); // valor_desconto
+            pstmt.setDouble(10, this.valor_diaria); // valor_desconto
+            pstmt.setString(11, this.observacao); // observacao
 
             int rows = pstmt.executeUpdate();
 
+            if (rows > 0) {
+                System.out.println("Reserva " + this.getId() + " criada com sucesso!");
+            } else {
+                System.out.println("Reserva " + this.getId() + " não foi criada!");
+            }
             return rows > 0;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Reserva " + this.getId() + " não foi criada!");
         return false;
     }
 
+    @Override
     public Reserva read(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(readSqlQuery)) {
             pstmt.setInt(1, this.id);
@@ -97,14 +122,17 @@ public class Reserva {
                 setValor_diaria(rs.getDouble("valor_diaria"));
                 setObservacao(rs.getString("observacao"));
                 this.somaValorTotal();
+                System.out.println("Reserva " + this.getId() + " encontrada!");
                 return this;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Reserva " + this.getId() + " não foi encontrada!");
         return null;
     }
 
+    @Override
     public boolean update(Connection connection) {
         this.somaValorTotal();
         try (PreparedStatement pstmt = connection.prepareStatement(updateSqlQuery)) {
@@ -123,23 +151,32 @@ public class Reserva {
 
             int rows = pstmt.executeUpdate();
 
-            return rows > 0;
+            if (rows > 0) {
+                System.out.println("Reserva " + this.getId() + " atualizada!");
+                return true;
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Reserva " + this.getId() + " não foi atualizada!");
         return false;
     }
 
+    @Override
     public boolean delete(Connection connection) {
         try (PreparedStatement pstmt = connection.prepareStatement(deleteSqlQuery)) {
             pstmt.setInt(1, this.id);
 
             int rows = pstmt.executeUpdate();
 
-            return rows > 0;
+            if (rows > 0) {
+                System.out.println("Reserva " + this.getId() + " deletada!");
+                return true;
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Reserva " + this.getId() + " não foi deletada!");
         return false;
     }
 
