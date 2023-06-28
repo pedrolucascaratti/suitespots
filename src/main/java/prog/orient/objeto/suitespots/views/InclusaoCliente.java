@@ -23,6 +23,7 @@ public class InclusaoCliente extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -58,30 +59,12 @@ public class InclusaoCliente extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         btnCadastrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Cliente");
+        setMinimumSize(new java.awt.Dimension(1024, 768));
         setPreferredSize(new java.awt.Dimension(1024, 768));
+        setLocationRelativeTo(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 23)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -394,73 +377,6 @@ public class InclusaoCliente extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jMenu3.setText("Cadastro");
-
-        jMenu1.setText("Inclusão");
-
-        jMenuItem1.setText("Cliente");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Quarto");
-        jMenu1.add(jMenuItem2);
-
-        jMenu3.add(jMenu1);
-
-        jMenu2.setText("Alteração");
-
-        jMenuItem3.setText("Cliente");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setText("Quarto");
-        jMenu2.add(jMenuItem4);
-
-        jMenu3.add(jMenu2);
-
-        jMenu4.setText("Consulta");
-
-        jMenuItem5.setText("Cliente");
-        jMenu4.add(jMenuItem5);
-
-        jMenuItem6.setText("Quarto");
-        jMenu4.add(jMenuItem6);
-
-        jMenu3.add(jMenu4);
-
-        jMenu6.setText("Exclusão");
-
-        jMenuItem7.setText("Cliente");
-        jMenu6.add(jMenuItem7);
-
-        jMenuItem8.setText("Quarto");
-        jMenu6.add(jMenuItem8);
-
-        jMenu3.add(jMenu6);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu7.setText("Reserva");
-
-        jMenuItem9.setText("Nova");
-        jMenu7.add(jMenuItem9);
-
-        jMenuItem10.setText("Editar");
-        jMenu7.add(jMenuItem10);
-
-        jMenuItem11.setText("Excluir");
-        jMenu7.add(jMenuItem11);
-
-        jMenuItem12.setText("Relatório");
-        jMenu7.add(jMenuItem12);
-
-        jMenuBar1.add(jMenu7);
-
-        jMenu5.setText("Sair");
-        jMenuBar1.add(jMenu5);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -483,17 +399,16 @@ public class InclusaoCliente extends javax.swing.JFrame {
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                                .addGap(31, 31, 31)
                                 .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
+                                .addGap(29, 29, 29)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26,
-                                        Short.MAX_VALUE)
+                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnCadastrar)
                                         .addComponent(btnCancelar))
-                                .addGap(22, 22, 22)));
+                                .addContainerGap(28, Short.MAX_VALUE)));
 
         pack();
         setLocationRelativeTo(null);
@@ -582,26 +497,6 @@ public class InclusaoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

@@ -53,6 +53,7 @@ public class Home extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 768));
         setPreferredSize(new java.awt.Dimension(1024, 768));
+        setLocationRelativeTo(null);
 
         txtHome.setFont(new java.awt.Font("Segoe UI", 0, 40)); // NOI18N
         txtHome.setText("SuiteSpots");

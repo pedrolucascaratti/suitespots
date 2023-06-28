@@ -26,6 +26,7 @@ public class ColsultaCliente extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -66,7 +67,9 @@ public class ColsultaCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Consulta de Clientes");
+        setMinimumSize(new java.awt.Dimension(1024, 768));
         setPreferredSize(new java.awt.Dimension(1024, 768));
+        setLocationRelativeTo(null);
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         btnBuscar.setText("Buscar");
