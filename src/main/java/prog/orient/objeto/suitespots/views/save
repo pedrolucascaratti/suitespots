@@ -1,0 +1,3 @@
+setMinimumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setLocationRelativeTo(null);

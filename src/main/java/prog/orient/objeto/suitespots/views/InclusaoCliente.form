@@ -53,12 +53,12 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCadastrar" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,17 +93,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="459" max="-2" attributes="0"/>
+                              <Component id="nomeTField" min="-2" pref="459" max="-2" attributes="0"/>
                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
+                              <Component id="emailTField" alignment="0" min="-2" pref="459" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField3" min="-2" pref="254" max="-2" attributes="0"/>
+                                      <Component id="cpfTField" min="-2" pref="254" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField4" max="32767" attributes="0"/>
+                                      <Component id="telefoneTField" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="120" max="32767" attributes="0"/>
@@ -114,13 +114,13 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="apelidoTField" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jRadioButton1" pref="95" max="32767" attributes="0"/>
+                                      <Component id="sitAtivoRadio" pref="95" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jRadioButton2" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Component id="sitOscRadio" min="-2" pref="124" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jComboBox3" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sexoComboBox" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -142,12 +142,12 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cidadeTField" alignment="0" max="32767" attributes="0"/>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField6" min="-2" pref="345" max="-2" attributes="0"/>
+                                      <Component id="logTField" min="-2" pref="345" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextField7" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <Component id="nmrTField" min="-2" pref="96" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -159,8 +159,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bairroTField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="estadoCombo" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -185,8 +185,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                      <Component id="nomeTField" min="-2" max="-2" attributes="0"/>
+                      <Component id="apelidoTField" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -197,10 +197,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cpfTField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefoneTField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jComboBox3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="sexoComboBox" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -214,9 +214,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="emailTField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sitAtivoRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sitOscRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -232,12 +232,10 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jTextField6" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="nmrTField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bairroTField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="logTField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -246,8 +244,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cidadeTField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="estadoCombo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
@@ -267,7 +265,7 @@
             <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="nomeTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="22" style="0"/>
@@ -282,14 +280,14 @@
             <Property name="text" type="java.lang.String" value="Apelido:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="apelidoTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="22" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="apelidoTFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -300,14 +298,14 @@
             <Property name="text" type="java.lang.String" value="CPF:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="cpfTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfTFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -318,14 +316,14 @@
             <Property name="text" type="java.lang.String" value="Telefone:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="telefoneTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneTFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -344,7 +342,7 @@
             <Property name="text" type="java.lang.String" value="E-mail:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="emailTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
@@ -367,14 +365,14 @@
             <Property name="text" type="java.lang.String" value="Logadouro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="logTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logTFieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -385,7 +383,7 @@
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="nmrTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
@@ -400,7 +398,7 @@
             <Property name="text" type="java.lang.String" value="Bairro:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
+        <Component class="javax.swing.JTextField" name="bairroTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
@@ -423,14 +421,14 @@
             <Property name="text" type="java.lang.String" value="Estado:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
+        <Component class="javax.swing.JTextField" name="cidadeTField">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
+        <Component class="javax.swing.JComboBox" name="estadoCombo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -470,7 +468,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="sexoComboBox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="20" style="0"/>
@@ -487,21 +485,27 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="sitAtivoRadio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ativo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sitAtivoRadioActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="sitOscRadio">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="22" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Oscioso"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sitOscRadioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
@@ -518,7 +522,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="obsTField">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -538,6 +542,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCancelar">
       <Properties>

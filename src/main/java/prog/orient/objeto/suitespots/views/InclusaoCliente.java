@@ -4,7 +4,17 @@
  */
 package prog.orient.objeto.suitespots.views;
 
+import javax.swing.BorderFactory;
+import javax.swing.InputVerifier;
+import javax.swing.JComponent;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import javax.swing.plaf.ColorUIResource;
+import javax.swing.text.AttributeSet.ColorAttribute;
+import java.awt.Color;
+
 import prog.orient.objeto.suitespots.controller.Router;
+import prog.orient.objeto.suitespots.views.components.JTextLimit;
 
 public class InclusaoCliente extends javax.swing.JFrame {
 
@@ -13,7 +23,91 @@ public class InclusaoCliente extends javax.swing.JFrame {
      */
     public InclusaoCliente() {
         initComponents();
+        setTFieldLimits();
+        setTFieldVerifier();
+    }
 
+    private void setTFieldLimits() {
+        nomeTField.setDocument(new JTextLimit(40));
+        apelidoTField.setDocument(new JTextLimit(15));
+        cpfTField.setDocument(new JTextLimit(11));
+        telefoneTField.setDocument(new JTextLimit(18));
+        emailTField.setDocument(new JTextLimit(60));
+        logTField.setDocument(new JTextLimit(25));
+        nmrTField.setDocument(new JTextLimit(8));
+        bairroTField.setDocument(new JTextLimit(20));
+        cidadeTField.setDocument(new JTextLimit(30));
+    }
+
+    private void setTFieldVerifier() {
+        cpfTField.setInputVerifier(verifyOnlyNumber("cpf"));
+        telefoneTField.setInputVerifier(verifyOnlyNumber("telefone"));
+        nmrTField.setInputVerifier(verifyOnlyNumber("numero"));
+    }
+
+    private InputVerifier verifyOnlyNumber(String field) {
+        InputVerifier def = new InputVerifier() {
+
+            Border originalBorder;
+
+            @Override
+            public boolean verify(JComponent input) {
+                JTextField comp = (JTextField) input;
+                return comp.getText().matches("^[0-9]+$");
+            }
+
+            @Override
+            public boolean shouldYieldFocus(JComponent input) {
+                boolean isValid = verify(input);
+
+                if (!isValid) {
+                    originalBorder = originalBorder == null ? input.getBorder() : originalBorder;
+                    input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+                } else {
+                    if (originalBorder != null) {
+                        input.setBorder(originalBorder);
+                        originalBorder = null;
+                    }
+                }
+                return isValid;
+            }
+        };
+
+        InputVerifier cpf = new InputVerifier() {
+
+            Border originalBorder;
+
+            @Override
+            public boolean verify(JComponent input) {
+                JTextField comp = (JTextField) input;
+                return (comp.getText().matches("^[0-9]+$") && comp.getText().length() == 11);
+            }
+
+            @Override
+            public boolean shouldYieldFocus(JComponent input) {
+                boolean isValid = verify(input);
+
+                if (!isValid) {
+                    originalBorder = originalBorder == null ? input.getBorder() : originalBorder;
+                    input.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+                } else {
+                    if (originalBorder != null) {
+                        input.setBorder(originalBorder);
+                        originalBorder = null;
+                    }
+                }
+                return isValid;
+            }
+        };
+
+        switch (field) {
+            case "cpf":
+                return cpf;
+            case "telefone":
+                return cpf;
+            default:
+                return def;
+        }
     }
 
     /**
@@ -24,39 +118,42 @@ public class InclusaoCliente extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nomeTField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        apelidoTField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        cpfTField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        telefoneTField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        emailTField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        logTField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        nmrTField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        bairroTField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        cidadeTField = new javax.swing.JTextField();
+        estadoCombo = new javax.swing.JComboBox<>();
+        sexoComboBox = new javax.swing.JComboBox<>();
+        sitAtivoRadio = new javax.swing.JRadioButton();
+        sitOscRadio = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        obsTField = new javax.swing.JTextArea();
         btnCadastrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -75,35 +172,35 @@ public class InclusaoCliente extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Nome:");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
+        nomeTField.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Apelido:");
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        apelidoTField.setFont(new java.awt.Font("Dialog", 0, 22)); // NOI18N
+        apelidoTField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                // apelidoTFieldActionPerformed(evt);
             }
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("CPF:");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        cpfTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        cpfTField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                // cpfTFieldActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Telefone:");
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        telefoneTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        telefoneTField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                // telefoneTFieldActionPerformed(evt);
             }
         });
 
@@ -113,7 +210,7 @@ public class InclusaoCliente extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("E-mail:");
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        emailTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Situação:");
@@ -121,22 +218,22 @@ public class InclusaoCliente extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Logadouro:");
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        logTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        logTField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                // logTFieldActionPerformed(evt);
             }
         });
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Número:");
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        nmrTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Bairro:");
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        bairroTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Cidade:");
@@ -144,31 +241,41 @@ public class InclusaoCliente extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setText("Estado:");
 
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        cidadeTField.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre", "Alagoas", "Amapá",
+        estadoCombo.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        estadoCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre", "Alagoas", "Amapá",
                 "Amazonas", "Bahia", "Ceará", "Espírito Santo\t", "Goiás", "Maranhão", "Mato Grosso\t",
                 "Mato Grosso do Sul\t", "Minas Gerais\t", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí",
                 "Rio de Janeiro\t", "Rio Grande do Norte\t", "Rio Grande do Sul\t", "Rondônia", "Roraima",
                 "Santa Catarina\t", "São Paulo\t", "Sergipe", "Tocantins" }));
 
-        jComboBox3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femino", "Outro" }));
+        sexoComboBox.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        sexoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femino", "Outro" }));
 
-        jRadioButton1.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jRadioButton1.setText("Ativo");
+        sitAtivoRadio.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        sitAtivoRadio.setText("Ativo");
+        sitAtivoRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sitAtivoRadioActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jRadioButton2.setText("Oscioso");
+        sitOscRadio.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        sitOscRadio.setText("Oscioso");
+        sitOscRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sitOscRadioActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Observações:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        obsTField.setColumns(20);
+        obsTField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        obsTField.setRows(5);
+        jScrollPane1.setViewportView(obsTField);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,17 +288,17 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                 .addGroup(jPanel1Layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(jLabel2)
-                                                        .addComponent(jTextField1,
+                                                        .addComponent(nomeTField,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE, 459,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel7)
-                                                        .addComponent(jTextField5,
+                                                        .addComponent(emailTField,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE, 459,
                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addGroup(jPanel1Layout.createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jTextField3,
+                                                                        .addComponent(cpfTField,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 254,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,7 +306,7 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                                 .addGap(18, 18, 18)
                                                                 .addGroup(jPanel1Layout.createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jTextField4)
+                                                                        .addComponent(telefoneTField)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addComponent(jLabel5)
                                                                                 .addGap(0, 120, Short.MAX_VALUE)))))
@@ -209,18 +316,18 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                         .addGroup(jPanel1Layout
                                                                 .createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(jTextField2,
+                                                                .addComponent(apelidoTField,
                                                                         javax.swing.GroupLayout.Alignment.TRAILING)
                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                        .addComponent(jRadioButton1,
+                                                                        .addComponent(sitAtivoRadio,
                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                 95, Short.MAX_VALUE)
                                                                         .addGap(30, 30, 30)
-                                                                        .addComponent(jRadioButton2,
+                                                                        .addComponent(sitOscRadio,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 124,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addComponent(jComboBox3, 0,
+                                                                .addComponent(sexoComboBox, 0,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE)
                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -242,18 +349,18 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                 .addGroup(jPanel1Layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
                                                                 false)
-                                                        .addComponent(jTextField9,
+                                                        .addComponent(cidadeTField,
                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel1Layout
                                                                 .createParallelGroup(
                                                                         javax.swing.GroupLayout.Alignment.LEADING)
                                                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                        .addComponent(jTextField6,
+                                                                        .addComponent(logTField,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 345,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addGap(18, 18, 18)
-                                                                        .addComponent(jTextField7,
+                                                                        .addComponent(nmrTField,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 96,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -265,8 +372,8 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout
                                                         .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jTextField8)
-                                                        .addComponent(jComboBox2, 0,
+                                                        .addComponent(bairroTField)
+                                                        .addComponent(estadoCombo, 0,
                                                                 javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addGroup(jPanel1Layout.createParallelGroup(
@@ -284,10 +391,10 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                         .addComponent(jLabel3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(nomeTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(apelidoTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -299,13 +406,13 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout
                                                 .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(cpfTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                .addComponent(telefoneTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(sexoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,11 +426,11 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                         .addComponent(jLabel8)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(emailTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jRadioButton1)
-                                        .addComponent(jRadioButton2))
+                                        .addComponent(sitAtivoRadio)
+                                        .addComponent(sitOscRadio))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(20, 20, 20)
@@ -335,16 +442,14 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel9)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(nmrTField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bairroTField, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(logTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -353,10 +458,10 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                         .addComponent(jLabel14))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(cidadeTField, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        .addComponent(estadoCombo, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
@@ -368,6 +473,11 @@ public class InclusaoCliente extends javax.swing.JFrame {
 
         btnCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -404,15 +514,27 @@ public class InclusaoCliente extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                         javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(btnCadastrar)
-                                        .addComponent(btnCancelar))
-                                .addContainerGap(28, Short.MAX_VALUE)));
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnCancelar)
+                                        .addComponent(btnCadastrar))
+                                .addContainerGap()));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCadastrarActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void sitAtivoRadioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_sitAtivoRadioActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_sitAtivoRadioActionPerformed
+
+    private void sitOscRadioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_sitOscRadioActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_sitOscRadioActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -479,10 +601,14 @@ public class InclusaoCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apelidoTField;
+    private javax.swing.JTextField bairroTField;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JTextField cidadeTField;
+    private javax.swing.JTextField cpfTField;
+    private javax.swing.JTextField emailTField;
+    private javax.swing.JComboBox<String> estadoCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -498,18 +624,14 @@ public class InclusaoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField logTField;
+    private javax.swing.JTextField nmrTField;
+    private javax.swing.JTextField nomeTField;
+    private javax.swing.JTextArea obsTField;
+    private javax.swing.JComboBox<String> sexoComboBox;
+    private javax.swing.JRadioButton sitAtivoRadio;
+    private javax.swing.JRadioButton sitOscRadio;
+    private javax.swing.JTextField telefoneTField;
     // End of variables declaration//GEN-END:variables
 }
